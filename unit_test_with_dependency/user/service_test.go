@@ -1,6 +1,7 @@
 package user_test
 
 import (
+	"backend/model"
 	"backend/unit_test_with_dependency/user"
 	"fmt"
 	"testing"
@@ -9,11 +10,11 @@ import (
 type mockRepo struct {
 }
 
-func (m *mockRepo) GetUserByEmail(email string) (*user.User, error) {
+func (m *mockRepo) GetUserByEmail(email string) (*model.User, error) {
 	if email == "" {
 		return nil, fmt.Errorf("")
 	}
-	return &user.User{
+	return &model.User{
 		ID:       1,
 		Email:    email,
 		Password: "1234",

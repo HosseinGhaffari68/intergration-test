@@ -1,11 +1,12 @@
 package user
 
 import (
+	"backend/model"
 	"fmt"
 )
 
 type Repository interface {
-	GetUserByEmail(email string) (*User, error)
+	GetUserByEmail(email string) (*model.User, error)
 }
 
 type Service struct {
@@ -15,13 +16,6 @@ type Service struct {
 
 func NewService(repo Repository) *Service {
 	return &Service{repo: repo}
-}
-
-type User struct {
-	ID       uint
-	Email    string
-	Password string
-	Name     string
 }
 
 type LoginRequest struct {
